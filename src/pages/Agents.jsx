@@ -1,0 +1,35 @@
+import { NavLink } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useState,useEffect } from "react";
+import BackToDashboardSideBar from "../components/BackToDashboardSideBar";
+export default function Agents(){
+    const [salesAgents, setSalesAgents] = useState([]);
+
+   useEffect(() => {
+    axios.get('https://crm-app-backend-jade.vercel.app/agents').then(res => setSalesAgents(res.data));
+  }, []);
+
+  const navigate = useNavigate();
+    return(
+        <>
+            <nav className="navbar bg-success d-flex justify-content-center py-3 px-0">
+              <NavLink className="navbar-brand" to="/">
+                <h1 className="text-center">Sales Agent Management</h1>
+              </NavLink>
+              </nav>
+              <div className="row">
+                <div className="col-2 p-0 sidebar-green">
+                <BackToDashboardSideBar />
+                </div>
+                <div className="col-6 main-layout container py-3">
+                <h1 className="my-3">Sales Agent List</h1>
+                <ul className="list-group">{salesAgents.map(agent => (
+                <li className="list-group-item fs-4 py-4" key={agent._id} value={agent._id}>Agent: {agent.name} - {agent.email}</li>
+              ))}</ul>
+              <button className="mt-4 px-3 py-3 fs-4 add-lead-btn btn btn-success" onClick={() => navigate("/addNewAgent")}>Add New Agent</button>
+               </div>
+              </div>
+        </>
+    )
+}
