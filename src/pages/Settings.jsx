@@ -77,7 +77,7 @@ export default function Settings() {
               <div className="spinner-border text-primary" role="status">
                 <span className="visually-hidden">Loading...</span>
               </div>
-              <p>Loading Data...</p>
+              <p>Loading...</p>
             </div>
           </div>
         );
