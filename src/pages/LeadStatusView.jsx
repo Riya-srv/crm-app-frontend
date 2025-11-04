@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import BackToDashboardSideBar from "../components/BackToDashboardSideBar";
 import axios from "axios";
+import Nav from "../components/Nav";
 
 export default function LeadStatusView() {
   const [leads, setLeads] = useState([]);
@@ -46,7 +47,19 @@ export default function LeadStatusView() {
     return filtered;
   };
 
-  if (loading) return <div>Loading...</div>;
+    if (loading) {
+      return (
+        <div className="app-container">
+          <Nav />
+          <div className="d-flex flex-column justify-content-center align-items-center" style={{ minHeight: "60vh" }}>
+            <div className="spinner-border text-primary" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+            <p>Loading Data...</p>
+          </div>
+        </div>
+      );
+    }
 
   return (
     <div>

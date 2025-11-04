@@ -43,7 +43,7 @@ const LeadForm = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/leads', form);
+      await axios.post('https://crm-app-backend-jade.vercel.app/leads', form);
       toast.success("Lead created!", { position: "bottom-right"});
       setForm({
         name: "",

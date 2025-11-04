@@ -24,7 +24,7 @@ export default function Leads(){
   const fetchLeads = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:3000/leads");
+      const response = await fetch("https://crm-app-backend-jade.vercel.app/leads");
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -99,7 +99,7 @@ const fetchAgents = async () => {
       return (
         <div className="app-container">
           <Nav />
-          <div className="loading-container">
+          <div className="d-flex flex-column justify-content-center align-items-center" style={{ minHeight: "60vh" }}>
             <div className="spinner-border text-primary" role="status">
               <span className="visually-hidden">Loading...</span>
             </div>

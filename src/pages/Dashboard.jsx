@@ -73,7 +73,7 @@ export default function Dashboard() {
     return (
       <div className="app-container">
         <Nav />
-        <div className="loading-container">
+        <div className="d-flex flex-column justify-content-center align-items-center" style={{ minHeight: "60vh" }}>
           <div className="spinner-border text-primary" role="status">
             <span className="visually-hidden">Loading...</span>
           </div>
