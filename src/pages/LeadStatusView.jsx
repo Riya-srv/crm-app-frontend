@@ -81,7 +81,6 @@ export default function LeadStatusView() {
             >
               {/* Add or fetch all statuses as needed */}
               <option value="New">New</option>
-              <option value="Contacted">Contacted</option>
               <option value="Qualified">Qualified</option>
               <option value="Contracted">Contracted</option>
               <option value="Proposal Sent">Proposal Sent</option>
