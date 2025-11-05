@@ -28,7 +28,7 @@ async function handleSubmit(e) {
 
           <form onSubmit={handleSubmit}>
             <div className="row mb-3 align-items-center">
-              <label className="form-label col-md-4 fs-4" htmlFor="agentName">
+              <label className="form-label col-md-4 fs-3" htmlFor="agentName">
                 Agent Name:
               </label>
               <div className="col-md-8">
@@ -44,7 +44,7 @@ async function handleSubmit(e) {
               </div>
             </div>
             <div className="row mb-3 align-items-center">
-              <label className="form-label col-md-4 fs-4" htmlFor="agentEmail">
+              <label className="form-label col-md-4 fs-3" htmlFor="agentEmail">
                 Email Address:
               </label>
               <div className="col-md-8">

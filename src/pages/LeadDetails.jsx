@@ -4,14 +4,20 @@ import { NavLink } from "react-router-dom";
 import BackToDashboardSideBar from "../components/BackToDashboardSideBar";
 import axios from "axios";
 import Nav from "../components/Nav";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function LeadDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const priorityOptions = ["High", "Medium", "Low"];
+  const leadSources = ["Website", "Referral", "Cold Call"];
+  const leadStatuses = ["New", "Contracted", "Qualified", "Proposal Sent", "Closed"];
 
   const [lead, setLead] = useState(null);
   const [comments, setComments] = useState([]);
   const [salesAgents, setSalesAgents] = useState([]);
+  
   const [loading, setLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -68,17 +74,19 @@ export default function LeadDetails() {
       await axios.patch(`https://crm-app-backend-jade.vercel.app/leads/${id}`, form);
       const updatedLead = await axios.get(`https://crm-app-backend-jade.vercel.app/leads/${id}`);
       setLead(updatedLead.data);
+      toast.success("Lead successfully updated!", { position: "bottom-right"});
       setIsEditing(false);
     } catch {
-      alert("Error updating lead");
+      toast.error("Error updating lead", { position: "bottom-right"});
     }
   };
 
   const handleAddComment = async (e) => {
     e.preventDefault();
+     toast.info("Comment added!", { position: "bottom-right"});
 
     if (!selectedAuthor) {
-      alert("Please select an author before adding a comment.");
+       toast.info("Please select an author before adding a comment.", { position: "bottom-right"});
       return;
     }
 
@@ -152,17 +160,52 @@ export default function LeadDetails() {
 
               <div className="mb-3">
                 <label htmlFor="source" className="form-label">Lead Source</label>
-                <input type="text" id="source" name="source" value={form.source} onChange={handleFormChange} className="form-control" required />
+                            <select
+              className="form-control"
+              name="source"
+              id="leadSource"
+              value={form.source}
+              onChange={handleFormChange}
+              required
+            >
+              <option value="" disabled>Select source</option>
+              {leadSources.map(src => (
+                <option key={src} value={src}>{src}</option>
+              ))}
+            </select>
               </div>
 
               <div className="mb-3">
                 <label htmlFor="status" className="form-label">Lead Status</label>
-                <input type="text" id="status" name="status" value={form.status} onChange={handleFormChange} className="form-control" required />
-              </div>
-
+                            <select
+              className="form-control"
+              name="status"
+              id="leadStatus"
+              value={form.status}
+              onChange={handleFormChange}
+              required
+            >
+              <option value="" disabled>Select status</option>
+              {leadStatuses.map(status => (
+                <option key={status} value={status}>{status}</option>
+              ))}
+            </select>
+            </div>
               <div className="mb-3">
                 <label htmlFor="priority" className="form-label">Priority</label>
-                <input type="text" id="priority" name="priority" value={form.priority} onChange={handleFormChange} className="form-control" required />
+                <select
+              className="form-control"
+              name="priority"
+              id="priority"
+              value={form.priority}
+              onChange={handleFormChange}
+              required
+            >
+              <option value="" disabled>Select priority</option>
+              {priorityOptions.map(p => (
+                <option key={p} value={p}>{p}</option>
+              ))}
+            </select>
               </div>
 
               <div className="mb-3">
@@ -216,6 +259,7 @@ export default function LeadDetails() {
           </form>
         </div>
       </div>
+      <ToastContainer/>
     </>
   );
 }
