@@ -71,7 +71,7 @@ export default function LeadStatusView() {
         <div className="col-2 p-0 sidebar-green">
           <BackToDashboardSideBar />
         </div>
-        <div className="col-8 py-4">
+        <div className="col-8 py-4 px-4 mx-4">
           <div className="fs-4 mb-3">
             <strong className="form-label">Status:</strong>
             <select

@@ -13,7 +13,7 @@ export default function AddNewAgent(){
         <div className="col-2 p-0 sidebar-green">
           <BackToDashboardSideBar/>
         </div>
-        <div className="col-6 main-layout container py-3">
+        <div className="col-8 main-layout m-5 px-5">
           <AgentForm />
         </div>
       </div>

@@ -66,11 +66,11 @@ export default function LeadByAgent() {
         <div className="col-2 p-0 sidebar-green">
           <BackToDashboardSideBar />
         </div>
-        <div className="col-8 py-4">
+        <div className="col-8 py-4 px-4 m-4">
           <div className="mb-3 fs-4">
             <strong>Sales Agent:</strong>
             <select
-              className="ms-2"
+              className="form-control fs-4"
               value={selectedAgent}
               onChange={e => setSelectedAgent(e.target.value)}
             >

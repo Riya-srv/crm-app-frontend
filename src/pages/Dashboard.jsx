@@ -56,6 +56,8 @@ export default function Dashboard() {
   const newLeadsCount = getLeadsCount("New");
   const contractedLeadsCount = getLeadsCount("Contracted");
   const qualifiedLeadsCount = getLeadsCount("Qualified");
+  const proposalSentLeadsCount = getLeadsCount("Proposal Sent");
+  const closedLeadsCount = getLeadsCount("Closed");
 
   const getFilteredLeads = () => {
     if (!Array.isArray(leads)) return [];
@@ -111,7 +113,7 @@ export default function Dashboard() {
       <div className="col-2 p-0 sidebar-green">
         <SideBar />
       </div>
-      <div className="col">
+      <div className="col px-4 mx-4">
         <div className="main-layout">
           <div className="content">
 
@@ -160,6 +162,12 @@ export default function Dashboard() {
             </div>
             <div className="qualifiedLead">
               <div className="label  fw-3 fs-3">Qualified <b className="count">[{qualifiedLeadsCount}]</b> Leads</div>
+            </div>
+             <div className="proposalSentLead">
+              <div className="label  fw-3 fs-3">Proposal Sent <b className="count">[{proposalSentLeadsCount}]</b> Leads</div>
+            </div>
+            <div className="closedLead">
+              <div className="label  fw-3 fs-3">Closed <b className="count">[{closedLeadsCount}]</b> Leads</div>
             </div>
           </div>
 </div>

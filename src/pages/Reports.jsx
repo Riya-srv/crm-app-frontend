@@ -72,7 +72,7 @@ export default function Reports() {
         <div className="col-2 p-0 sidebar-green">
           <BackToDashboardSideBar />
         </div>
-        <div className="col-8 py-4">
+        <div className="col-8 py-4 ms-4 ps-4 my-3">
           <h2 className="mb-4">Report Overview</h2>
           {/* Pie Chart: Closed vs Pipeline */}
           <h4>Total Leads Closed and in Pipeline</h4>

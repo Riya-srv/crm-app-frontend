@@ -95,8 +95,8 @@ export default function Settings() {
           <div className="col-2 p-0 sidebar-green">
             <BackToDashboardSideBar />
           </div>
-          <div className="col-8 py-4">
-            <h2>Settings</h2>
+          <div className="col-8 py-4 ms-4 ps-4 my-3">
+            <h2 className="d-flex justify-content-center me-5">Manage Leads and Agents</h2>
 
             
             <div className="card p-3 mb-4">
